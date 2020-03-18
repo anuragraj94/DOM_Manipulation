@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <title>Anchor Tag</title>
+</head>
+<body>
+    Normal Text
+    <br>
+    <a href="http://www.google.com" target="_allBlack" title="Go">google Anchar Tag</a>
+    <hr>
+    <b>This is text Bold Tag</b>
+    <hr>
+    <code>This is Code Tag</code>
+    <hr>
+    <button id="Add" class="btn btn-primary">Add TextBox</button>
+    <button id="Remove" class="btn btn-primary">Remove TextBox</button>
+    <hr>
+    <div class="col-md-4">
+    <div id="check"></div>
+</div>
+
+    <script>
+        var count=1;
+         $("#Add").click(function(){
+             if (count<=0) {
+                 count=1;
+                 customAlert("Initilize 1","Click Ok","success");
+             }
+    $("#check").append('<div><br><input type="text" class="form-control" placeholder="Enter Text '+count+'"></div>');
+    count++;
+  });
+  $("#Remove").click(function(){
+    //customAlert("TextBox going to remove","Click Ok","info");
+    customAlertRm(count);
+    //$("#check").children().last().remove();    
+    count--;   
+  });
+
+  function customAlert(msg,click,icon){
+    //swal("Good job!", "You clicked the button!", "success");
+    swal(msg,click,icon);
+  }
+
+  function customAlertRm(count) {
+      if (count<=1) {
+          customAlert("TextBox Not Available","","info");
+          return;
+      }else {
+    swal({        
+  title: "Are you sure?",
+  //text: "Once deleted, you will not be able to recover this imaginary file!",
+  text: "Once deleted, you will not be able to recover this imaginary TextBox!",
+  icon: "warning",
+  buttons: true,
+  dangerMode: true,
+})
+.then((willDelete) => {
+  if (willDelete) {
+    $("#check").children().last().remove();    
+    //swal("Poof! Your imaginary file has been deleted!", {
+        swal("Poof! Your imaginary TextBox has been Removed!", {
+      icon: "success",
+    });
+  } else {
+    //swal("Your imaginary TextBox is safe!");
+    return;
+  }
+});
+
+}
+  }
+
+  
+    </script>
+</body>
+</html>
