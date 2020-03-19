@@ -6,6 +6,14 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
+  
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
     <title>Anchor Tag</title>
 </head>
 <body>
@@ -24,7 +32,39 @@
     <div id="check"></div>
 </div>
 
+<!-- Table creation by Jquery
+link for guidence https://datatables.net
+-->
+<div class="container">
+<table id="myTable">
+  <thead>
+    <tr>
+        <th>Column 1</th>
+        <th>Column 2</th>
+        <th>Column 3</th>
+        <th>Column 4</th>
+        <th>Column 5</th>
+        <th>Column 6</th>
+    </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>Row 2 Data 1</td>
+    <td>Row 2 Data 2</td>
+    <td>Row 2 Data 3</td>
+    <td>Row 2 Data 4</td>
+    <td>Row 2 Data 5</td>
+    <td>Row 2 Data 6</td>
+</tr>
+</tbody>
+</table>
+</div>
+
     <script>
+$(document).ready( function () {
+    $('#myTable').DataTable();
+} );
+
         var count=1;
          $("#Add").click(function(){
              if (count<=0) {
